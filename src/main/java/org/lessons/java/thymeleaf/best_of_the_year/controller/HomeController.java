@@ -58,7 +58,7 @@ public class HomeController {
 
   // ! APPLICATION ROUTES
 
-  @GetMapping("")
+  @GetMapping("/")
   public String home(Model model) {
 
     model.addAttribute("name", "Giuseppe");
@@ -70,18 +70,34 @@ public class HomeController {
   public String movies(Model model) {
 
     ArrayList<Movie> bestMovies = getBestMovies();
-    ArrayList<Song> bestSongs = getBestSongs();
 
     String bestMoviesString = "";
     for (int i = 0; i < bestMovies.size() - 1; i++) {
       bestMoviesString = bestMoviesString + bestMovies.get(i).getTitle() + ", ";
     }
-    bestMoviesString += bestMovies.get(bestMovies.size()).getTitle();
+    bestMoviesString += bestMovies.get(bestMovies.size() - 1).getTitle();
 
     model.addAttribute("name", "Giuseppe");
-    model.addAttribute("moviesList", getBestMovies());
+    model.addAttribute("moviesList", bestMoviesString);
 
     return "movies";
+  }
+
+  @GetMapping("/songs")
+  public String songs(Model model) {
+
+    ArrayList<Song> bestSongs = getBestSongs();
+
+    String bestSongsString = "";
+    for (int i = 0; i < bestSongs.size() - 1; i++) {
+      bestSongsString = bestSongsString + bestSongs.get(i).getTitle() + ", ";
+    }
+    bestSongsString += bestSongs.get(bestSongs.size() - 1).getTitle();
+
+    model.addAttribute("name", "Giuseppe");
+    model.addAttribute("songsList", bestSongsString);
+
+    return "songs";
   }
 
   // ! OTHER METHODS
