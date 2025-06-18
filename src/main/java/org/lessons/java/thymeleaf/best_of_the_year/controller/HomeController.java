@@ -8,7 +8,9 @@ import org.lessons.java.thymeleaf.best_of_the_year.classes.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
@@ -98,6 +100,30 @@ public class HomeController {
     model.addAttribute("songsList", bestSongsString);
 
     return "songs";
+  }
+
+  @GetMapping("/movies/{id}")
+  public String movieDetails(Model model, @PathVariable("id") int id) {
+
+    for (Movie movie : movies) {
+      if (movie.getId() == id) {
+        model.addAttribute("movieTitle", movie.getTitle());
+      }
+    }
+
+    return "movieDetails";
+  }
+
+  @GetMapping("/songs/{id}")
+  public String songDetails(Model model, @PathVariable("id") int id) {
+
+    for (Song song : songs) {
+      if (song.getId() == id) {
+        model.addAttribute("songTitle", song.getTitle());
+      }
+    }
+
+    return "songDetails";
   }
 
   // ! OTHER METHODS
