@@ -106,7 +106,7 @@ public class HomeController {
 
     for (Movie movie : movies) {
       if (movie.getId() == id) {
-        model.addAttribute("movieTitle", movie.getTitle());
+        model.addAttribute("movie", movie);
       }
     }
 
@@ -118,7 +118,7 @@ public class HomeController {
 
     for (Song song : songs) {
       if (song.getId() == id) {
-        model.addAttribute("songTitle", song.getTitle());
+        model.addAttribute("song", song);
       }
     }
 

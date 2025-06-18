@@ -72,4 +72,17 @@ public class Movie {
   }
 
   // ! other methods
+
+  // !OVERRIDES
+  public String toString() {
+
+    System.out.println(
+        String.format("Title: %s \n Actors: %s \n Duration: %.2f \n Rating: %d", this.getTitle(), this.getActors(),
+            this.getDuration(), this.getRating()));
+
+    return String.format("Title: %s Actors: %s \n Duration: %.2f \n Rating: %d", this.getTitle(),
+        this.getActors(),
+        this.getDuration(), this.getRating());
+
+  }
 }
