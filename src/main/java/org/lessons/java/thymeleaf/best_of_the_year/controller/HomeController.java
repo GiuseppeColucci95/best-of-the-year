@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
@@ -71,16 +70,16 @@ public class HomeController {
   @GetMapping("/movies")
   public String movies(Model model) {
 
-    ArrayList<Movie> bestMovies = getBestMovies();
+    // ArrayList<Movie> bestMovies = getBestMovies();
 
-    String bestMoviesString = "";
-    for (int i = 0; i < bestMovies.size() - 1; i++) {
-      bestMoviesString = bestMoviesString + bestMovies.get(i).getTitle() + ", ";
-    }
-    bestMoviesString += bestMovies.get(bestMovies.size() - 1).getTitle();
+    // String bestMoviesString = "";
+    // for (int i = 0; i < bestMovies.size() - 1; i++) {
+    // bestMoviesString = bestMoviesString + bestMovies.get(i).getTitle() + ", ";
+    // }
+    // bestMoviesString += bestMovies.get(bestMovies.size() - 1).getTitle();
 
     model.addAttribute("name", "Giuseppe");
-    model.addAttribute("moviesList", bestMoviesString);
+    model.addAttribute("moviesList", getBestMovies());
 
     return "movies";
   }
@@ -88,16 +87,16 @@ public class HomeController {
   @GetMapping("/songs")
   public String songs(Model model) {
 
-    ArrayList<Song> bestSongs = getBestSongs();
+    // ArrayList<Song> bestSongs = getBestSongs();
 
-    String bestSongsString = "";
-    for (int i = 0; i < bestSongs.size() - 1; i++) {
-      bestSongsString = bestSongsString + bestSongs.get(i).getTitle() + ", ";
-    }
-    bestSongsString += bestSongs.get(bestSongs.size() - 1).getTitle();
+    // String bestSongsString = "";
+    // for (int i = 0; i < bestSongs.size() - 1; i++) {
+    // bestSongsString = bestSongsString + bestSongs.get(i).getTitle() + ", ";
+    // }
+    // bestSongsString += bestSongs.get(bestSongs.size() - 1).getTitle();
 
     model.addAttribute("name", "Giuseppe");
-    model.addAttribute("songsList", bestSongsString);
+    model.addAttribute("songsList", getBestSongs());
 
     return "songs";
   }

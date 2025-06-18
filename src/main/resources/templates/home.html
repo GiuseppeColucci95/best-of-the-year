@@ -3,10 +3,27 @@
 
 <head>
   <title>Best of the year</title>
+
+  <th:block th:replace="~{fragments :: bootstrap}"></th:block>
 </head>
 
 <body>
-  <h1 th:text="|Best of the year by: ${name}|"></h1>
+
+  <th:block th:replace="~{fragments :: header}"></th:block>
+
+  <div class="container mt-3">
+    <h1 class="text-center" th:text="|BEST OF BY: ${name}|"></h1>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <img class="w-75 mx-auto" th:src="@{/img/davidevsroma.jpg}" alt="image">
+      </div>
+      <div class="col-12 text-center py-4 fs-3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio. Possimus repellendus corrupti, earum est
+        aliquam beatae nemo. Perspiciatis voluptas atque quae repudiandae hic laboriosam necessitatibus inventore quos
+        distinctio cupiditate?
+      </div>
+    </div>
+  </div>
 
 </body>
 

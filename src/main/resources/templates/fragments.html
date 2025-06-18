@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns:th='http://www.thymeleaf.org'>
+
+<head>
+
+  <th:block th:fragment="bootstrap">
+    <!-- BOOTSTRAP -->
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.6/css/bootstrap.min.css}">
+  </th:block>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header th:fragment="header" class="py-3">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-3">
+          <h1 class="p-0 m-0">BEST OF</h1>
+        </div>
+        <div class="col-9">
+          <div class="d-flex gap-2">
+            <th:block th:replace="~{fragments :: button('/movies', 'Movies')}"></th:block>
+            <th:block th:replace="~{fragments :: button('/songs', 'Songs')}"></th:block>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BUTTONS -->
+  <a th:fragment="button(link, title)" th:href="${link}" th:text="${title}" class="btn btn-warning"></a>
+
+  <!-- LIST -->
+  <section th:fragment="contentList(title, list)" class="pt-5">
+    <div class="container text-center">
+
+      <h1 class="text-center">Best [[${title}]]</h1>
+
+      <ul class="list-unstyled w-50 mx-auto">
+        <li>
+          <div class="card p-3 fs-5" th:each="content : ${list}" th:text="${content.title}"></div>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+</body>
+
+</html>
